@@ -9,11 +9,13 @@ require('dotenv').config();
 
 //rutas
 const usersRoutes = require('./api/routes/usersRoute');
+const bebidasRoutes = require('./api/routes/bebidasRoute');
 
 //conexion a la base de datos, desde el link que nos proporciono la base de datos en ATLAS.
 mongoose.connect('mongodb+srv://maxisun:'+process.env.MONGO_ATLAS_PASSWORD+'@rep-sazon-im8dq.mongodb.net/test?retryWrites=true');
 mongoose.Promise = global.Promise;
 
+app.use('/uploads', express.static('uploads'));//primer parametro permite que se incluya el nombre del folder para que se busque en un browser
 //configurando el uso de bodyParser
 app.use(bodyParser.urlencoded({extended: false}));//parser para bodies de urlencoded al cual no queremos que sean extendidos, por eso el "false"
 app.use(bodyParser.json());//configuracion para bodies que contengan JSON
@@ -33,6 +35,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/users', usersRoutes);
+app.use('/bebidas', bebidasRoutes);
 
 //lidiando con errores, si no logro acceder a ninguna de las rutas de arriba
 app.use((req, res, next) => {
