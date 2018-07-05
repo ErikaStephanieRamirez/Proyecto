@@ -42,4 +42,6 @@ router.post('/', checkAuth, upload.single('productImage'), BebidasController.beb
 
 router.delete('/:productId', checkAuth, BebidasController.bebidas_delete_one);
 
+router.patch('/:productId', checkAuth, BebidasController.bebidas_patch_one);
+
 module.exports = router;

@@ -67,6 +67,7 @@ exports.bebidas_insert_one = (req, res, next) => {
   });
 }
 
+//DELETE a drink
 exports.bebidas_delete_one = (req, res, next) => {
   const id = req.params.productId
   Bebida.findByIdAndRemove(id)
@@ -77,7 +78,27 @@ exports.bebidas_delete_one = (req, res, next) => {
     });
   })
   .catch(err => {
-    console.log(err);
+    res.status(500).json({
+      error: err
+    });
+  });
+}
+
+//PATCH a drink
+exports.bebidas_patch_one = (req, res, next) => {
+  const id = req.params.productId;
+  const updateOperations = {};
+  for (const ops of req.body){
+    updateOperations[ops.propName] = ops.value;
+  }
+  Bebida.update({_id: id}, {$set: updateOperations})
+  .exec()
+  .then(result =>{
+    res.status(200).json({
+      message: 'The drink was updated successfully'
+    });
+  })
+  .catch(err => {
     res.status(500).json({
       error: err
     });
