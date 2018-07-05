@@ -39,10 +39,7 @@ const BebidasController = require('../controllers/bebidasController');
 router.get('/', BebidasController.bebidas_get_all);
 
 router.post('/', checkAuth, upload.single('productImage'), BebidasController.bebidas_insert_one);
-/*
-router.post('/login', UsersController.users_login);
 
-//DELETE para users
-router.delete('/:userId', UsersController.users_delete);
-*/
+router.delete('/:productId', checkAuth, BebidasController.bebidas_delete_one);
+
 module.exports = router;

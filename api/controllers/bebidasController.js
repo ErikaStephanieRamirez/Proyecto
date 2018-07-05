@@ -66,3 +66,20 @@ exports.bebidas_insert_one = (req, res, next) => {
     });
   });
 }
+
+exports.bebidas_delete_one = (req, res, next) => {
+  const id = req.params.productId
+  Bebida.findByIdAndRemove(id)
+  .exec()
+  .then(result => {
+    res.status(200).json({
+      message: 'The drink was successfully deleted'
+    });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json({
+      error: err
+    });
+  });
+}
