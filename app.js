@@ -7,6 +7,9 @@ const mongoose = require('mongoose');
 //variables
 require('dotenv').config();
 
+//rutas
+const usersRoutes = require('./api/routes/usersRoute');
+
 //conexion a la base de datos, desde el link que nos proporciono la base de datos en ATLAS.
 mongoose.connect('mongodb+srv://maxisun:'+process.env.MONGO_ATLAS_PASSWORD+'@rep-sazon-im8dq.mongodb.net/test?retryWrites=true');
 mongoose.Promise = global.Promise;
@@ -28,6 +31,8 @@ app.use((req, res, next) => {
   }
   next();//procedemos a resto de las rutas
 });
+
+app.use('/users', usersRoutes);
 
 //lidiando con errores, si no logro acceder a ninguna de las rutas de arriba
 app.use((req, res, next) => {
