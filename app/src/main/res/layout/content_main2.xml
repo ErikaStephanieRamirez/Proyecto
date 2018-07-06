@@ -4,23 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.ramirez.proyecto.Main2Activity"
-    tools:showIn="@layout/app_bar_main2">
+    tools:context="com.ramirez.proyecto.Activities.Main2Activity"
+    tools:showIn="@layout/app_bar_main2"
+    android:id="@+id/contentcosa">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="175dp"
-        android:src="@drawable/repszon"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_categorias"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-    </android.support.v7.widget.RecyclerView>
+
+
+
 
 </LinearLayout>

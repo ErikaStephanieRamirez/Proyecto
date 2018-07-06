@@ -1,8 +1,13 @@
-package com.ramirez.proyecto;
+package com.ramirez.proyecto.Activities;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,25 +17,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.ramirez.proyecto.Fragments.TabsFragment;
+import com.ramirez.proyecto.Fragments.emptyfrag;
+import com.ramirez.proyecto.Fragments.menufragment;
+import com.ramirez.proyecto.Fragments.verde;
+import com.ramirez.proyecto.R;
 
 public class Main2Activity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
+
+    Button ver;
+    boolean cosa = false;
+    SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        getSupportFragmentManager().beginTransaction().replace(R.id.contentcosa, menufragment.newInstance("a","b")).commit();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Menú");
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        /*fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,6 +58,9 @@ public class Main2Activity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
     }
 
     @Override
@@ -80,22 +101,31 @@ public class Main2Activity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.login) {
-            // Handle the camera action
-        } else if (id == R.id.menu) {
+            if (id == R.id.login) {
+                // Handle the camera action
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+            } else if (id == R.id.menu) {
 
-        } else if (id == R.id.info) {
+            } else if (id == R.id.info) {
 
-        } else if (id == R.id.facebook) {
+            } else if (id == R.id.facebook) {
+                Intent redireccion= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/RepublicaSazon/"));
+                startActivity(redireccion);
+            } else if (id == R.id.whats) {
+                //Intent redireccion= new Intent();
+                //startActivity(redireccion);
+            } else if (id == R.id.instagram) {
+                Intent redireccion= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/republicasazon/"));
+                startActivity(redireccion);
+            }
 
-        } else if (id == R.id.whats) {
-
-        } else if (id == R.id.instagram) {
-
-        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
 }

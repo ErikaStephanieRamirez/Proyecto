@@ -5,17 +5,25 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/login"
+            android:id="@+id/verventa"
             android:icon="@drawable/ic_person_pin"
-            android:title="Iniciar Sesion" />
+            android:title="@string/verventa" />
         <item
-            android:id="@+id/menu"
+            android:id="@+id/addregistro"
             android:icon="@drawable/ic_restaurant_menu"
-            android:title="Menú" />
+            android:title="@string/addregistro" />
+        <item
+        android:id="@+id/menu"
+        android:icon="@drawable/ic_restaurant_menu"
+        android:title="Menú"/>
         <item
             android:id="@+id/info"
             android:icon="@drawable/ic_info_black_24dp"
-            android:title="Mas informacion"/>
+            android:title="@string/masinfo"/>
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_person_pin"
+            android:title="@string/cerrarsesion"/>
 
     </group>
 
