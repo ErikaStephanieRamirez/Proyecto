@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
     cb(null, './uploads/'); // cath de null por posible error, relative path to upload folder
   },
   filename: function(req, file, cb) {
-    cb(null, new Date().toISOString().replace(/:/g,'-') + file.originalname);
+    cb(null, new Date().toISOString().replace(/:/g,'-') + file.originalname.split(" ").join(""));
     //cb(null, file.filename); // ejemplo de uso de uso del callback
   }
 });
