@@ -23,10 +23,11 @@
 
             <ImageView
                android:id="@+id/imagen_bebida"
-               android:layout_width="150dp"
+               android:layout_width="wrap_content"
                android:layout_height="match_parent"
-                android:src="@drawable/desayunos"/>
+                android:src="@drawable/fondo"/>
 
+        </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -40,10 +41,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Bebida"
+                        android:maxLines="2"
                         android:gravity="center"
-                        android:maxLines="1"
-                        android:maxLength="15"
-                        android:textSize="20sp"
+                        android:maxLength="26"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
                         android:textColor="#000"
                         android:layout_gravity="center"/>
 
@@ -51,8 +53,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="15dp">
+                            android:layout_gravity="bottom|end"
+                            android:layout_marginRight="15dp">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
@@ -60,7 +62,7 @@
                                 android:text="$"
                                 android:gravity="center"
                                 android:textSize="25sp"
-                                android:textColor="#000"
+                                android:textColor="#227c01"
 
                                 android:layout_gravity="center"/>
 
@@ -69,13 +71,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:text="Precio"
+                                android:textColor="#227c01"
                                 android:layout_weight="2"
                                 android:gravity="center_vertical"
                                 android:textSize="25sp"
-                                android:textColor="#000"
                                 android:layout_gravity="center_horizontal"/>
 
-            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

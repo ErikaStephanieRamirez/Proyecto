@@ -42,7 +42,7 @@ import java.util.List;
 public class BebidasFragment extends Fragment {
     public RecyclerView rv;
     public BebidasAdapter adapter;
-    public GridLayoutManager lManager;
+    public LinearLayoutManager lManager;
     public List<BebidaEntity> list;
     SwipeRefreshLayout swipeRefreshLayout;
     public BebidasViewModel nvmodel;
@@ -95,7 +95,7 @@ public class BebidasFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_bebidas, container, false);
         rv = v.findViewById(R.id.recyclerbebidas);
-        lManager= new GridLayoutManager(getActivity(),2);
+        lManager= new LinearLayoutManager(getActivity());
         swipeRefreshLayout= v.findViewById(R.id.swipebebidas);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -120,7 +120,7 @@ public class BebidasFragment extends Fragment {
             @Override
             public void onChanged(@Nullable List<BebidaEntity> list) {
                 adapter = new BebidasAdapter(list, getActivity());
-                lManager= new GridLayoutManager(getActivity(),2);
+                lManager= new LinearLayoutManager(getActivity());
                 rv.setLayoutManager(lManager);
                 rv.setAdapter(adapter);
             }
