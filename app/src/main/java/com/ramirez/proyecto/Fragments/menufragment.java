@@ -21,6 +21,7 @@ import com.ramirez.proyecto.R;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,7 +35,7 @@ public class menufragment extends Fragment {
     public RecyclerView rv;
     public CategoriaAdapter adapter;
     public LinearLayoutManager lManager;
-    public ArrayList<Categoria> list;
+    public List<Categoria> list;
     SwipeRefreshLayout swipeRefreshLayout;
     public Context contexto;
     //public CategoriasViewModel nvmodel;
