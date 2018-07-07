@@ -9,21 +9,26 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.ramirez.proyecto.API.Models.UsersRequest.UserModel;
 import com.ramirez.proyecto.R;
+import com.ramirez.proyecto.RoomArchitecture.Repository.LoginRepository;
 import com.ramirez.proyecto.RoomArchitecture.ViewModel.BebidasViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences pref;
     private BebidasViewModel bebidasViewModel;
+    private UserModel userModel = new UserModel("maxisun","root");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bebidasViewModel = new BebidasViewModel(getApplication());
+        fillbaselocal();
+
         getSupportActionBar().hide();
 
         pref= getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
@@ -48,5 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void fillbaselocal(){
+        bebidasViewModel = new BebidasViewModel(getApplication());
     }
 }

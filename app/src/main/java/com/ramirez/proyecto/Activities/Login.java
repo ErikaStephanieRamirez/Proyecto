@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.ramirez.proyecto.API.Models.UsersRequest.UserModel;
 import com.ramirez.proyecto.R;
+import com.ramirez.proyecto.RoomArchitecture.Repository.LoginRepository;
 
 import java.net.SocketTimeoutException;
 
@@ -19,6 +21,7 @@ public class Login extends AppCompatActivity {
     private EditText name, pass;
     private Button btn;
     public String names, passw;
+    private UserModel userModel;
 
     private SharedPreferences preferencies;
 
@@ -43,7 +46,15 @@ public class Login extends AppCompatActivity {
                 }else{
                     names=name.getText().toString();
                     passw = pass.getText().toString();
-                    SaveSharedPrefs(names,passw);
+
+
+                    //Cambio de validacion de token REVISAR REPOSITORIO LOGINREPOSITORY
+                    userModel = new UserModel(names,passw);
+                    LoginRepository.loginval(userModel,getApplication());
+                    //Fin de validacion de usuario y token guardado en shared preferences
+
+
+                    //SaveSharedPrefs(names,passw);
                     Intent intent = new Intent(getApplicationContext(),AdminMainActivity.class);
                     startActivity(intent);
                     finish();
@@ -52,10 +63,12 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
+    /*
     public void SaveSharedPrefs(String usuariosp,String passwrd){
         SharedPreferences.Editor editor= preferencies.edit();
         editor.putString("usuario", usuariosp);
         editor.putString("password", passwrd);
         editor.apply();
-    }
+    }*/
 }
