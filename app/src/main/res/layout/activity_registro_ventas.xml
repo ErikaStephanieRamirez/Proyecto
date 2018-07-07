@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/pizza"
+            android:drawableLeft="@drawable/porcion"
             android:textColor="@android:color/white"
             android:backgroundTint="@color/colorPrimary"
             android:text="PORCION"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/pizza"
+            android:drawableLeft="@drawable/cup"
             android:textColor="@android:color/white"
             android:backgroundTint="@color/colorPrimary"
             android:text="BEBIDA"
@@ -68,8 +68,9 @@
         </android.support.v4.widget.SwipeRefreshLayout>
     </LinearLayout>
 
+
     <Button
-        android:id="@+id/button_bebida"
+        android:id="@+id/button_agregar"
         android:layout_width="match_parent"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -77,10 +78,10 @@
         android:layout_marginTop="15dp"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:drawableLeft="@drawable/pizza"
+        android:drawableLeft="@drawable/cup"
         android:textColor="@android:color/white"
         android:backgroundTint="@color/colorPrimary"
-        android:text="BEBIDA"
+        android:text="AGREGAR"
         android:textSize="15sp"
 
         android:layout_centerVertical="true"
