@@ -1,6 +1,7 @@
 package com.ramirez.proyecto.API;
 
 import com.ramirez.proyecto.API.Models.FeedBebidas.FeedBebidas;
+import com.ramirez.proyecto.API.Models.PupusasRequest.FeedPupusas;
 import com.ramirez.proyecto.API.Models.UsersRequest.TokenModel;
 import com.ramirez.proyecto.API.Models.UsersRequest.UserModel;
 
@@ -15,6 +16,9 @@ public interface RepSazonAPI {
 
     @GET("/bebidas")
     Call<FeedBebidas> getData();
+
+    @GET("/pupusas")
+    Call<FeedPupusas> getPupusas();
 
     @POST("users/login")
     Call<TokenModel> getToken(@Body UserModel userModel);
