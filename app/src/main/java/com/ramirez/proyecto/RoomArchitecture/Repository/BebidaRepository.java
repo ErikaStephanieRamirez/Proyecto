@@ -8,6 +8,7 @@ import com.ramirez.proyecto.RoomArchitecture.Entities.BebidaEntity;
 import com.ramirez.proyecto.RoomArchitecture.RepSazonDatabase;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BebidaRepository {
 
@@ -19,7 +20,7 @@ public class BebidaRepository {
         bebidasDAO = db.bebidasDAO();
     }
 
-    public LiveData<ArrayList<BebidaEntity>> getAllBebidas(){
+    public LiveData<List<BebidaEntity>> getAllBebidas(){
         return bebidasDAO.getAllBebidas();
     }
 

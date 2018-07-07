@@ -6,7 +6,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import com.ramirez.proyecto.RoomArchitecture.Entities.BebidaEntity;
-import java.util.ArrayList;
+import java.util.List;
 
 @Dao
 public interface BebidasDAO {
@@ -15,6 +15,6 @@ public interface BebidasDAO {
     void insertBebida(BebidaEntity... bebida);
 
     @Query("SELECT * FROM Bebidas_table ORDER BY name DESC")
-    LiveData<ArrayList<BebidaEntity>> getAllBebidas();
+    LiveData<List<BebidaEntity>> getAllBebidas();
 
 }
