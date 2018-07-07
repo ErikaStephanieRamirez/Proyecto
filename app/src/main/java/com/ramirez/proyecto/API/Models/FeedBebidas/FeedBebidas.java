@@ -9,5 +9,5 @@ public class FeedBebidas {
 
     @SerializedName("bebidas")
     @Expose
-    private ArrayList<FeedBebidas.Bebidas> bebidas;
+    private ArrayList<Bebidas> bebidas;
 }
