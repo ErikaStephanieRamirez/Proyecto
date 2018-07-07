@@ -14,7 +14,7 @@ public interface BebidasDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(BebidaEntity bebida);
 
-    @Query("SELECT * FROM Bebidas_table")
+    @Query("SELECT * FROM Bebidas_table ORDER BY name DESC")
     LiveData<List<BebidaEntity>> getAllBebidas();
 
 }

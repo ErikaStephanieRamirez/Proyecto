@@ -13,6 +13,7 @@ import com.ramirez.proyecto.RoomArchitecture.Entities.BebidaEntity;
 import com.ramirez.proyecto.RoomArchitecture.RepSazonDatabase;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -25,7 +26,6 @@ public class BebidaRepository {
 
     private BebidasDAO bebidasDAO;
     private Application application;
-    //private LiveData<ArrayList<BebidaEntity>> bebidas;
 
     public BebidaRepository(Application application){
         RepSazonDatabase db = RepSazonDatabase.getDatabase(application);
@@ -49,12 +49,22 @@ public class BebidaRepository {
         call.enqueue(new Callback<FeedBebidas>() {
             @Override
             public void onResponse(Call<FeedBebidas> call, Response<FeedBebidas> response) {
-                Toast.makeText(application.getApplicationContext(),"Funciona",Toast.LENGTH_SHORT).show();
+                if(response.isSuccessful()){
+                    ArrayList<Bebidas> bebidas = response.body().getBebidas();
+                    String url = "https://rep-sazon.herokuapp.com/";
+                    BebidaEntity bebidaEntity;
+                    for (int i=0;i<bebidas.size();i++){
+                        bebidaEntity = new BebidaEntity(bebidas.get(i).getId(),
+                                bebidas.get(i).getNombre(),
+                                bebidas.get(i).getPrice(),
+                                url+bebidas.get(i).getProductImage().replace("uploads\\","uploads//"));
+                        insert(bebidaEntity);
+                    }
+                }
             }
-
             @Override
             public void onFailure(Call<FeedBebidas> call, Throwable t) {
-                Toast.makeText(application.getApplicationContext(),"RIP",Toast.LENGTH_SHORT).show();
+                Toast.makeText(application.getApplicationContext(),"Sin Conexion a internet",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -73,9 +83,5 @@ public class BebidaRepository {
             return null;
         }
     }
-
-
-
-
 
 }
