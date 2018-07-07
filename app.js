@@ -10,6 +10,7 @@ require('dotenv').config();
 //rutas
 const usersRoutes = require('./api/routes/usersRoute');
 const bebidasRoutes = require('./api/routes/bebidasRoute');
+const pupusasRoutes = require('./api/routes/pupusasRoute');
 
 //conexion a la base de datos, desde el link que nos proporciono la base de datos en ATLAS.
 mongoose.connect('mongodb+srv://maxisun:'+process.env.MONGO_ATLAS_PASSWORD+'@rep-sazon-im8dq.mongodb.net/test?retryWrites=true');
@@ -36,6 +37,7 @@ app.use((req, res, next) => {
 
 app.use('/users', usersRoutes);
 app.use('/bebidas', bebidasRoutes);
+app.use('/pupusas', pupusasRoutes);
 
 //lidiando con errores, si no logro acceder a ninguna de las rutas de arriba
 app.use((req, res, next) => {
