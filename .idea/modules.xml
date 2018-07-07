@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/Proyecto.iml" filepath="$PROJECT_DIR$/Proyecto.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ProyectoFinal.iml" filepath="$PROJECT_DIR$/.idea/ProyectoFinal.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/ProyectoFinal.iml" filepath="$PROJECT_DIR$/ProyectoFinal.iml" />
+>>>>>>> 3c13fc94cb7dcee05dd5641ed3dc0e49930bafba
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/republicasazon.iml" filepath="$PROJECT_DIR$/republicasazon.iml" />
     </modules>
   </component>
 </project>

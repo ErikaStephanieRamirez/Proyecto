@@ -24,6 +24,7 @@
             android:text="COMBO"
             android:textSize="15sp"/>
 
+<<<<<<< HEAD
         <Button
             android:id="@+id/button_porcion"
             android:layout_width="wrap_content"
@@ -67,6 +68,33 @@
             </android.support.v7.widget.RecyclerView>
         </android.support.v4.widget.SwipeRefreshLayout>
     </LinearLayout>
+=======
+    <Button
+        android:id="@+id/button_Combo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_weight="1"
+        android:drawableLeft="@drawable/pizza"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="COMBO"
+        android:textSize="15sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/button_porcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_weight="1"
+        android:drawableLeft="@drawable/pizza"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="PORCION"
+        android:textSize="15sp"/>
+>>>>>>> 3c13fc94cb7dcee05dd5641ed3dc0e49930bafba
 
     <Button
         android:id="@+id/button_bebida"
@@ -81,6 +109,9 @@
         android:textColor="@android:color/white"
         android:backgroundTint="@color/colorPrimary"
         android:text="BEBIDA"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
 
 </LinearLayout>
