@@ -28,9 +28,6 @@
                android:layout_marginLeft="8dp"/>
        </LinearLayout>
 
-
-
-
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
