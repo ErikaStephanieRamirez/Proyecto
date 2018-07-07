@@ -28,8 +28,8 @@
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.Login"></activity>
-        <activity android:name=".Activities.Login"></activity>
-        <activity android:name=".Activities.RegistroVentas"></activity>
+        <activity android:name=".Activities.RegistroVentas"
+            android:label="@string/title_registrar_producto"></activity>
     </application>
 
 </manifest>
