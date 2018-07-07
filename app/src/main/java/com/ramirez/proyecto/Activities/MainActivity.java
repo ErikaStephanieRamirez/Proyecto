@@ -11,15 +11,19 @@ import android.view.View;
 import android.widget.Button;
 
 import com.ramirez.proyecto.R;
+import com.ramirez.proyecto.RoomArchitecture.ViewModel.BebidasViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences pref;
+    private BebidasViewModel bebidasViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        bebidasViewModel = new BebidasViewModel(getApplication());
         getSupportActionBar().hide();
 
         pref= getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }, 1000);
+
 
 
     }
