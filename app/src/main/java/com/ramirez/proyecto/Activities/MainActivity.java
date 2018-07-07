@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         pref= getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
 
-        final Intent cliente = new Intent(this, AdminMainActivity.class);
-        final Intent administrador = new Intent(this, Main2Activity.class);
+        final Intent cliente = new Intent(this, Main2Activity.class);
+        final Intent administrador = new Intent(this, AdminMainActivity.class);
 
         new Handler().postDelayed(new Runnable() {
             @Override
