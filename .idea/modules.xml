@@ -4,8 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Proyecto.iml" filepath="$PROJECT_DIR$/Proyecto.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/republicasazon.iml" filepath="$PROJECT_DIR$/.idea/republicasazon.iml" />
+      <module fileurl="file://C:\Users\kEVIN\AndroidStudioProjects\Proyecto\.idea\republicasazon.iml" filepath="C:\Users\kEVIN\AndroidStudioProjects\Proyecto\.idea\republicasazon.iml" />
     </modules>
   </component>
 </project>
