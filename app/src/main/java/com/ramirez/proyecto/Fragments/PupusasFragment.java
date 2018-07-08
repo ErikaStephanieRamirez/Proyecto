@@ -18,6 +18,7 @@ import com.ramirez.proyecto.Categoria;
 import com.ramirez.proyecto.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,7 +32,7 @@ public class PupusasFragment extends Fragment {
     public RecyclerView rv;
     public CategoriaAdapter adapter;
     public GridLayoutManager lManager;
-    public ArrayList<Categoria> list;
+    public List<Categoria> list;
     SwipeRefreshLayout swipeRefreshLayout;
     public Context contexto;
     // TODO: Rename parameter arguments, choose names that match

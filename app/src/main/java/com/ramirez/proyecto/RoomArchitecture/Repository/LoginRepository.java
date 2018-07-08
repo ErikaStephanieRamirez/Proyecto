@@ -2,12 +2,14 @@ package com.ramirez.proyecto.RoomArchitecture.Repository;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import com.ramirez.proyecto.API.Models.UsersRequest.TokenModel;
 import com.ramirez.proyecto.API.Models.UsersRequest.UserModel;
 import com.ramirez.proyecto.API.RepSazonAPI;
+import com.ramirez.proyecto.Activities.AdminMainActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,6 +29,11 @@ public class LoginRepository {
             public void onResponse(Call<TokenModel> call, Response<TokenModel> response) {
                 if(response.isSuccessful()){
                     sharedpreferences(response.body().getToken(),application);
+                    Intent intent = new Intent(application ,AdminMainActivity.class);
+                    intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    application.startActivity(intent);
+
+
                 }else {
                     Toast.makeText(application.getApplicationContext(),"No Autorizado",Toast.LENGTH_SHORT).show();
                 }
@@ -45,6 +52,5 @@ public class LoginRepository {
         editor.putString("Token",token);
         //asyncrono
         editor.apply();
-        Toast.makeText(application.getApplicationContext(),token,Toast.LENGTH_SHORT).show();
     }
 }

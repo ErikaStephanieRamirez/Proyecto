@@ -5,47 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context=".Activities.RegistroVentas">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button_Combo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/pizza"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="COMBO"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/button_porcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/porcion"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="PORCION"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/button_bebida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/cup"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="BEBIDA"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="24dp"
+        android:layout_height="350dp">
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical">
+
+            </android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
 
 
     <Button
-        android:id="@+id/button_Combo"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_agregar"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_weight="1"
-        android:drawableLeft="@drawable/pizza"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="COMBO"
-        android:textSize="15sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
-
-    <Button
-        android:id="@+id/button_porcion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_weight="1"
-        android:drawableLeft="@drawable/porcion"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="PORCION"
-        android:textSize="15sp"/>
-
-    <Button
-        android:id="@+id/button_bebida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
         android:layout_weight="1"
         android:drawableLeft="@drawable/cup"
         android:textColor="@android:color/white"
         android:backgroundTint="@color/colorPrimary"
-        android:text="BEBIDA"
+        android:text="AGREGAR"
         android:textSize="15sp"
 
         android:layout_centerVertical="true"

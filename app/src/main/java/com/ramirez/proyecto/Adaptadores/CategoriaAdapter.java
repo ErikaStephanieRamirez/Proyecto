@@ -19,9 +19,10 @@ import com.ramirez.proyecto.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.CategoriasViewHolder> {
-    private ArrayList<Categoria> cats;
+    private List<Categoria> cats;
     public Context ctx;
     public Context context;
 
@@ -52,7 +53,7 @@ public abstract class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAda
         }
 
     }
-    public CategoriaAdapter(ArrayList<Categoria> news, Context context) {
+    public CategoriaAdapter(List<Categoria> news, Context context) {
         this.cats = news;
         this.ctx = context;
 

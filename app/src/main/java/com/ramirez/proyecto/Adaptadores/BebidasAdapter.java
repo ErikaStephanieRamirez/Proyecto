@@ -12,13 +12,15 @@ import android.widget.TextView;
 
 import com.ramirez.proyecto.API.Models.FeedBebidas.Bebidas;
 import com.ramirez.proyecto.R;
+import com.ramirez.proyecto.RoomArchitecture.Entities.BebidaEntity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BebidasAdapter extends RecyclerView.Adapter<BebidasAdapter.BebidasViewHolder> {
 
-    private ArrayList<Bebidas> bebidas;
+    private List<BebidaEntity> bebidas;
     public Context context;
 
 
@@ -32,8 +34,8 @@ public class BebidasAdapter extends RecyclerView.Adapter<BebidasAdapter.BebidasV
     @Override
     public void onBindViewHolder(BebidasViewHolder holder, int position) {
 
-        final Bebidas bebida = bebidas.get(position);
-        holder.nombreBebida.setText(bebida.getNombre());
+        final BebidaEntity bebida = bebidas.get(position);
+        holder.nombreBebida.setText(bebida.getName());
         holder.precioBebida.setText(String.valueOf(bebida.getPrice()));
         //Comprobamos si la posicion de la imagen es diferente de nula
         if (!(bebida.getProductImage() == null)) {
@@ -53,7 +55,7 @@ public class BebidasAdapter extends RecyclerView.Adapter<BebidasAdapter.BebidasV
         return bebidas.size();
     }
 
-    public BebidasAdapter(ArrayList<Bebidas> bebidas, Context context) {
+    public BebidasAdapter(List<BebidaEntity> bebidas, Context context) {
         this.bebidas = bebidas;
         this.context = context;
     }

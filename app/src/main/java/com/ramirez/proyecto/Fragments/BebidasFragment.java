@@ -1,22 +1,35 @@
 package com.ramirez.proyecto.Fragments;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.Entity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
 
+import com.ramirez.proyecto.API.Models.FeedBebidas.Bebidas;
+import com.ramirez.proyecto.API.Models.FeedBebidas.FeedBebidas;
+import com.ramirez.proyecto.Adaptadores.BebidasAdapter;
 import com.ramirez.proyecto.Adaptadores.CategoriaAdapter;
 import com.ramirez.proyecto.Categoria;
 import com.ramirez.proyecto.R;
+import com.ramirez.proyecto.RoomArchitecture.Entities.BebidaEntity;
+import com.ramirez.proyecto.RoomArchitecture.ViewModel.BebidasViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,10 +41,11 @@ import java.util.ArrayList;
  */
 public class BebidasFragment extends Fragment {
     public RecyclerView rv;
-    public CategoriaAdapter adapter;
+    public BebidasAdapter adapter;
     public LinearLayoutManager lManager;
-    public ArrayList<Categoria> list;
+    public List<BebidaEntity> list;
     SwipeRefreshLayout swipeRefreshLayout;
+    public BebidasViewModel nvmodel;
     public Context contexto;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,31 +96,38 @@ public class BebidasFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_bebidas, container, false);
         rv = v.findViewById(R.id.recyclerbebidas);
         lManager= new LinearLayoutManager(getActivity());
-        rv.setLayoutManager(lManager);
-        llenarlista();
-        adapter = new CategoriaAdapter((ArrayList<Categoria>) list, getActivity()) {
+        swipeRefreshLayout= v.findViewById(R.id.swipebebidas);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void CategoriaSeleccionada(String ctn) {
-                Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
-                toolbar.setTitle(ctn);
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contentcosa, TabsFragment.newInstance(ctn)).commit();
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            nvmodel= new BebidasViewModel(getActivity().getApplication());
+                            swipeRefreshLayout.setRefreshing(false);
+                        } catch (Exception e) {
+                        }
+                    }
+                }, 1000);
             }
-        };
-        rv.setAdapter(adapter);
+        });
+
+
+        nvmodel = ViewModelProviders.of(this).get(BebidasViewModel.class);
+        nvmodel.getAllBebidas().observe(this, new Observer<List<BebidaEntity>>() {
+            @Override
+            public void onChanged(@Nullable List<BebidaEntity> list) {
+                adapter = new BebidasAdapter(list, getActivity());
+                lManager= new LinearLayoutManager(getActivity());
+                rv.setLayoutManager(lManager);
+                rv.setAdapter(adapter);
+            }
+        });
         return v;
     }
-    public void llenarlista(){
-        list = new ArrayList<>();
-        list.add(new Categoria("Desayuno","Se ofrecen los mejores desayunos"));
-        list.add(new Categoria("Almuerzo","Se ofrecen los mejores almuerzos"));
-        list.add(new Categoria("Sabados","Sabadrinks"));
-        list.add(new Categoria("Desayuno","Se ofrecen los mejores desayunos"));
-        list.add(new Categoria("Almuerzo","Se ofrecen los mejores almuerzos"));
-        list.add(new Categoria("Sabados","Sabadrinks"));
-        list.add(new Categoria("Desayuno","Se ofrecen los mejores desayunos"));
-        list.add(new Categoria("Almuerzo","Se ofrecen los mejores almuerzos"));
-        list.add(new Categoria("Sabados","Sabadrinks"));
-    }
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {

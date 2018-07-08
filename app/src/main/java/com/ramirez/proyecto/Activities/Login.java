@@ -55,10 +55,6 @@ public class Login extends AppCompatActivity {
 
 
                     //SaveSharedPrefs(names,passw);
-                    Intent intent = new Intent(getApplicationContext(),AdminMainActivity.class);
-                    startActivity(intent);
-                    finish();
-
                 }
             }
         });
