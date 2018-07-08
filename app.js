@@ -13,6 +13,7 @@ const bebidasRoutes = require('./api/routes/bebidasRoute');
 const pupusasRoutes = require('./api/routes/pupusasRoute');
 const pollosRoutes = require('./api/routes/pollosRoute');
 const desayunosRoutes = require('./api/routes/desayunosRoute');
+const recesRoutes = require('./api/routes/resRoute');
 
 //conexion a la base de datos, desde el link que nos proporciono la base de datos en ATLAS.
 mongoose.connect('mongodb+srv://maxisun:'+process.env.MONGO_ATLAS_PASSWORD+'@rep-sazon-im8dq.mongodb.net/test?retryWrites=true');
@@ -42,6 +43,7 @@ app.use('/bebidas', bebidasRoutes);
 app.use('/pupusas', pupusasRoutes);
 app.use('/pollos', pollosRoutes);
 app.use('/desayunos', desayunosRoutes);
+app.use('/reces', recesRoutes);
 
 //lidiando con errores, si no logro acceder a ninguna de las rutas de arriba
 app.use((req, res, next) => {
