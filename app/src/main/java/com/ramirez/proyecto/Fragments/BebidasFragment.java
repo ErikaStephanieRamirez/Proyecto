@@ -108,6 +108,7 @@ public class BebidasFragment extends Fragment {
                             nvmodel= new BebidasViewModel(getActivity().getApplication());
                             swipeRefreshLayout.setRefreshing(false);
                         } catch (Exception e) {
+
                         }
                     }
                 }, 1000);

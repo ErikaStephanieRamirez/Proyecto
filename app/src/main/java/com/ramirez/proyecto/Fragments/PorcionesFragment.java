@@ -1,8 +1,12 @@
 package com.ramirez.proyecto.Fragments;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,9 +16,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ramirez.proyecto.Adaptadores.BebidasAdapter;
 import com.ramirez.proyecto.Adaptadores.CategoriaAdapter;
+import com.ramirez.proyecto.Adaptadores.PpusasAdapter;
 import com.ramirez.proyecto.Categoria;
 import com.ramirez.proyecto.R;
+import com.ramirez.proyecto.RoomArchitecture.Entities.BebidaEntity;
+import com.ramirez.proyecto.RoomArchitecture.Entities.PupusaEntity;
+import com.ramirez.proyecto.RoomArchitecture.ViewModel.BebidasViewModel;
+import com.ramirez.proyecto.RoomArchitecture.ViewModel.PupusasViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +40,13 @@ import java.util.List;
 public class PorcionesFragment extends Fragment {
     public RecyclerView rv;
     public CategoriaAdapter adapter;
+    public PpusasAdapter adapter2;
     public LinearLayoutManager lManager;
     public List<Categoria> list;
+    public List<PupusaEntity> pupusas;
     SwipeRefreshLayout swipeRefreshLayout;
     public Context contexto;
+    public PupusasViewModel nvmodel;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -81,20 +94,61 @@ public class PorcionesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_porciones, container, false);
-        rv = v.findViewById(R.id.recyclerporcion);
-        lManager= new LinearLayoutManager(getActivity());
-        rv.setLayoutManager(lManager);
-        llenarlista();
-        adapter = new CategoriaAdapter((ArrayList<Categoria>) list, getActivity()) {
-            @Override
-            public void CategoriaSeleccionada(String ctn) {
-                Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
-                toolbar.setTitle(ctn);
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contentcosa, TabsFragment.newInstance(ctn)).commit();
-            }
-        };
-        rv.setAdapter(adapter);
+        if(mParam1.equals("Desayuno")){
+
+            rv = v.findViewById(R.id.recyclerporcion);
+            lManager= new LinearLayoutManager(getActivity());
+            swipeRefreshLayout= v.findViewById(R.id.swipeporcion);
+
+            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                nvmodel= new PupusasViewModel(getActivity().getApplication());
+                                swipeRefreshLayout.setRefreshing(false);
+                            } catch (Exception e) {
+
+                            }
+                        }
+                    }, 1000);
+                }
+            });
+
+
+            nvmodel = ViewModelProviders.of(this).get(PupusasViewModel.class);
+            nvmodel.getAllPupusas().observe(this, new Observer<List<PupusaEntity>>() {
+                @Override
+                public void onChanged(@Nullable List<PupusaEntity> list) {
+                    adapter2 = new PpusasAdapter(list, getActivity());
+                    lManager= new LinearLayoutManager(getActivity());
+                    rv.setLayoutManager(lManager);
+                    rv.setAdapter(adapter2);
+                }
+            });
+
+
+        } else {
+            rv = v.findViewById(R.id.recyclerporcion);
+            lManager = new LinearLayoutManager(getActivity());
+            rv.setLayoutManager(lManager);
+            llenarlista();
+            adapter = new CategoriaAdapter((ArrayList<Categoria>) list, getActivity()) {
+                @Override
+                public void CategoriaSeleccionada(String ctn) {
+                    Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+                    toolbar.setTitle(ctn);
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contentcosa, TabsFragment.newInstance(ctn)).commit();
+                }
+            };
+            rv.setAdapter(adapter);
+
+        }
         return v;
+
+
     }
     public void llenarlista(){
         list = new ArrayList<>();
