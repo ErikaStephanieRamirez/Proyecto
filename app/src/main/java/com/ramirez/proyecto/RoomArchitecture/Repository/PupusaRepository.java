@@ -49,7 +49,6 @@ public class PupusaRepository {
             @Override
             public void onResponse(Call<FeedPupusas> call, Response<FeedPupusas> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(application.getApplicationContext(),response.message(),Toast.LENGTH_LONG).show();
                     ArrayList<PupusasModel> pupusas = response.body().getPupusas();
                     String url = "https://rep-sazon.herokuapp.com/";
                     PupusaEntity pupusaEntity;

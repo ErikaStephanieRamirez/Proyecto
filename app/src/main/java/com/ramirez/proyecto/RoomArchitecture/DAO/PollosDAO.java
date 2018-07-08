@@ -6,17 +6,17 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
-import com.ramirez.proyecto.RoomArchitecture.Entities.BebidaEntity;
-import com.ramirez.proyecto.RoomArchitecture.Entities.PupusaEntity;
+import com.ramirez.proyecto.RoomArchitecture.Entities.PolloEntity;
 
 import java.util.List;
 
 @Dao
-public interface PupusasDAO {
+public interface PollosDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(PupusaEntity pupusaEntity);
+    void insert(PolloEntity polloEntity);
 
-    @Query("SELECT * FROM Pupusas_table ORDER BY name DESC")
-    LiveData<List<PupusaEntity>> getAllPupusas();
+    @Query("SELECT * FROM Pollos_table ORDER BY name DESC")
+    LiveData<List<PolloEntity>> getAllPollos();
+
 }

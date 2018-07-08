@@ -7,14 +7,11 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.ramirez.proyecto.API.Models.UsersRequest.UserModel;
 import com.ramirez.proyecto.R;
-import com.ramirez.proyecto.RoomArchitecture.Repository.LoginRepository;
 import com.ramirez.proyecto.RoomArchitecture.ViewModel.BebidasViewModel;
+import com.ramirez.proyecto.RoomArchitecture.ViewModel.PollosViewModel;
 import com.ramirez.proyecto.RoomArchitecture.ViewModel.PupusasViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences pref;
     private BebidasViewModel bebidasViewModel;
     private PupusasViewModel pupusasViewModel;
+    private PollosViewModel pollosViewModel;
     private UserModel userModel = new UserModel("maxisun","root");
 
     @Override
@@ -60,5 +58,6 @@ public class MainActivity extends AppCompatActivity {
     private void fillbaselocal(){
         bebidasViewModel = new BebidasViewModel(getApplication());
         pupusasViewModel = new PupusasViewModel(getApplication());
+        pollosViewModel = new PollosViewModel(getApplication());
     }
 }
