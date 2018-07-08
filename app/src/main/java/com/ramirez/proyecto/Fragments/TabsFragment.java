@@ -87,9 +87,16 @@ public class TabsFragment extends Fragment {
         tabLayout = v.findViewById(R.id.tabs);
         SectionPagerAdapter s = new SectionPagerAdapter(getChildFragmentManager());
         viewPager = v.findViewById(R.id.vspager);
-        s.addFragment(PorcionesFragment.newInstance(mParam1,"k"),"COMBO");
-        s.addFragment(PupusasFragment.newInstance(mParam1,"k"),"PORCION");
-        s.addFragment(BebidasFragment.newInstance(mParam1,"k"),"BEBIDA");
+        if(mParam1.equals("Almuerzo")) {
+            s.addFragment(PorcionesFragment.newInstance(mParam1, "k"), "COMBO");
+            s.addFragment(PupusasFragment.newInstance(mParam1, "k"), "PORCION");
+            s.addFragment(BebidasFragment.newInstance(mParam1, "k"), "BEBIDA");
+        }
+        if(mParam1.equals("Desayuno")){
+            s.addFragment(PorcionesFragment.newInstance(mParam1,"k"),"PUPUSAS");
+            s.addFragment(PupusasFragment.newInstance(mParam1, "k"), "PORCION");
+            s.addFragment(BebidasFragment.newInstance(mParam1, "k"), "BEBIDA");
+        }
         viewPager.setAdapter(s);
         tabLayout.setupWithViewPager(viewPager);
         LinearLayout layout = v.findViewById(R.id.regresar);

@@ -17,6 +17,6 @@ public interface PupusasDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(PupusaEntity pupusaEntity);
 
-    @Query("SELECT * FROM Bebidas_table ORDER BY name DESC")
+    @Query("SELECT * FROM Pupusas_table ORDER BY name DESC")
     LiveData<List<PupusaEntity>> getAllPupusas();
 }
