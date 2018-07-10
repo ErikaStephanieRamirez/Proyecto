@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ramirez.proyecto.Fragments.AddVentafrag;
 import com.ramirez.proyecto.Fragments.menufragment;
@@ -29,19 +30,23 @@ public class AdminMainActivity extends AppCompatActivity
     Button ver;
     boolean cosa = false;
     SharedPreferences prefs;
+    private boolean isFirstEntry=true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2admin);
-        getSupportFragmentManager().beginTransaction().replace(R.id.contentcosa, menufragment.newInstance("a","b")).commit();
+        if(savedInstanceState==null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.contentcosa, menufragment.newInstance("a","b")).commit();
+        }
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Menú");
         setSupportActionBar(toolbar);
         SharedPreferences p = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+       // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         /*fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +66,11 @@ public class AdminMainActivity extends AppCompatActivity
 
 
 
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("first", false);
     }
 
     @Override
@@ -128,6 +138,10 @@ public class AdminMainActivity extends AppCompatActivity
                 Intent redireccion= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/RepublicaSazon/"));
                 startActivity(redireccion);
             } else if (id == R.id.whats) {
+                Toast.makeText(getApplicationContext(),"Llamando a República Sazón",Toast.LENGTH_SHORT).show();
+                Intent call = new Intent(Intent.ACTION_CALL);
+                call.setData(Uri.parse("tel:"+"75184043"));
+                startActivity(call);
 
             } else if (id == R.id.instagram) {
                 Intent redireccion= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/republicasazon/"));

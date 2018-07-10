@@ -10,6 +10,7 @@
             android:title="Iniciar Sesion" />
         <item
             android:id="@+id/menu"
+            android:checked="true"
             android:icon="@drawable/ic_restaurant_menu"
             android:title="Menú" />
         <item
@@ -28,7 +29,7 @@
             <item
                 android:id="@+id/whats"
                 android:icon="@drawable/telefono"
-                android:title="WhatsApp" />
+                android:title="Llamanos!" />
             <item
                 android:id="@+id/instagram"
                 android:icon="@drawable/camera"

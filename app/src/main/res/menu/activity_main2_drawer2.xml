@@ -36,7 +36,7 @@
             <item
                 android:id="@+id/whats"
                 android:icon="@drawable/telefono"
-                android:title="WhatsApp" />
+                android:title="Llamanos!" />
             <item
                 android:id="@+id/instagram"
                 android:icon="@drawable/camera"

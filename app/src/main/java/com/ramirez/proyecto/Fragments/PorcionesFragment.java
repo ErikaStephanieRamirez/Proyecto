@@ -18,12 +18,15 @@ import android.view.ViewGroup;
 
 import com.ramirez.proyecto.Adaptadores.BebidasAdapter;
 import com.ramirez.proyecto.Adaptadores.CategoriaAdapter;
+import com.ramirez.proyecto.Adaptadores.PolloAdapter;
 import com.ramirez.proyecto.Adaptadores.PpusasAdapter;
 import com.ramirez.proyecto.Categoria;
 import com.ramirez.proyecto.R;
 import com.ramirez.proyecto.RoomArchitecture.Entities.BebidaEntity;
+import com.ramirez.proyecto.RoomArchitecture.Entities.PolloEntity;
 import com.ramirez.proyecto.RoomArchitecture.Entities.PupusaEntity;
 import com.ramirez.proyecto.RoomArchitecture.ViewModel.BebidasViewModel;
+import com.ramirez.proyecto.RoomArchitecture.ViewModel.PollosViewModel;
 import com.ramirez.proyecto.RoomArchitecture.ViewModel.PupusasViewModel;
 
 import java.util.ArrayList;
@@ -45,6 +48,9 @@ public class PorcionesFragment extends Fragment {
     public List<Categoria> list;
     public List<PupusaEntity> pupusas;
     SwipeRefreshLayout swipeRefreshLayout;
+    public PolloAdapter adapter3;
+    public PollosViewModel pvmodel;
+    public List<PolloEntity> listpo;
     public Context contexto;
     public PupusasViewModel nvmodel;
     // TODO: Rename parameter arguments, choose names that match
@@ -130,7 +136,41 @@ public class PorcionesFragment extends Fragment {
             });
 
 
-        } else {
+        } else if(mParam1.equals("Almuerzo")){
+            rv = v.findViewById(R.id.recyclerporcion);
+            lManager= new LinearLayoutManager(getActivity());
+            swipeRefreshLayout= v.findViewById(R.id.swipeporcion);
+
+            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                pvmodel= new PollosViewModel(getActivity().getApplication());
+                                swipeRefreshLayout.setRefreshing(false);
+                            } catch (Exception e) {
+
+                            }
+                        }
+                    }, 1000);
+                }
+            });
+
+
+            pvmodel = ViewModelProviders.of(this).get(PollosViewModel.class);
+            pvmodel.getAllPollos().observe(this, new Observer<List<PolloEntity>>() {
+                @Override
+                public void onChanged(@Nullable List<PolloEntity> list) {
+                    adapter3 = new PolloAdapter(list, getActivity());
+                    lManager= new LinearLayoutManager(getActivity());
+                    rv.setLayoutManager(lManager);
+                    rv.setAdapter(adapter3);
+                }
+            });
+        }
+        else {
             rv = v.findViewById(R.id.recyclerporcion);
             lManager = new LinearLayoutManager(getActivity());
             rv.setLayoutManager(lManager);

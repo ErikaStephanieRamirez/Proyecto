@@ -106,7 +106,6 @@ public class menufragment extends Fragment {
         list = new ArrayList<>();
         list.add(new Categoria("Desayuno","Se ofrecen los mejores desayunos"));
         list.add(new Categoria("Almuerzo","Se ofrecen los mejores almuerzos"));
-        list.add(new Categoria("Sabados","Sabadrinks"));
     }
 
     // TODO: Rename method, update argument and hook method into UI event
