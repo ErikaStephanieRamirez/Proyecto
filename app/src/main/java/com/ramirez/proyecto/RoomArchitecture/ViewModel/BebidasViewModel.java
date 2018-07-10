@@ -10,7 +10,7 @@ import com.ramirez.proyecto.RoomArchitecture.Repository.BebidaRepository;
 import java.util.List;
 
 
-public class BebidasViewModel extends AndroidViewModel{
+public class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            BebidasViewModel extends AndroidViewModel{
 
     private BebidaRepository bebidaRepository;
 

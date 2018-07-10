@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ramirez.proyecto.Fragments.AddVentafrag;
 import com.ramirez.proyecto.Fragments.menufragment;
 import com.ramirez.proyecto.R;
 
@@ -98,13 +100,18 @@ public class AdminMainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        boolean FragmentSeleccionado = false;
+        Fragment miFragment=null;
 
             if (id == R.id.verventa) {
-                // Handle the camera action
 
             } else if (id == R.id.addregistro) {
-
+                miFragment = AddVentafrag.newInstance("c","c");
+                FragmentSeleccionado = true;
             } else if (id == R.id.menu) {
+                miFragment = menufragment.newInstance("C","d");
+                FragmentSeleccionado = true;
+
 
             } else if (id == R.id.info) {
 
@@ -126,6 +133,9 @@ public class AdminMainActivity extends AppCompatActivity
                 Intent redireccion= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/republicasazon/"));
                 startActivity(redireccion);
             }
+        if(FragmentSeleccionado){
+            getSupportFragmentManager().beginTransaction().replace(R.id.contentcosa,miFragment).commit();
+        }
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity {
         pass = findViewById(R.id.password);
         btn = findViewById(R.id.email_sign_in_button);
 
-        preferencies = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
+        preferencies = getSharedPreferences("Login_Token", Context.MODE_PRIVATE);
 
         btn.setOnClickListener(new View.OnClickListener(){
             @Override

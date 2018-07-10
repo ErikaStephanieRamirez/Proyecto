@@ -97,6 +97,11 @@ public class TabsFragment extends Fragment {
             s.addFragment(PupusasFragment.newInstance(mParam1, "k"), "PORCION");
             s.addFragment(BebidasFragment.newInstance(mParam1, "k"), "BEBIDA");
         }
+        if(mParam1.equals("Sabados")){
+            s.addFragment(PorcionesFragment.newInstance(mParam1,"k"),"PUPUSAS");
+            s.addFragment(PupusasFragment.newInstance(mParam1, "k"), "PORCION");
+            s.addFragment(BebidasFragment.newInstance(mParam1, "k"), "BEBIDA");
+        }
         viewPager.setAdapter(s);
         tabLayout.setupWithViewPager(viewPager);
         LinearLayout layout = v.findViewById(R.id.regresar);

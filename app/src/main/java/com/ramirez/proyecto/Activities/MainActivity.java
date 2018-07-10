@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        pref= getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
+        pref= getSharedPreferences("Login_Token", Context.MODE_PRIVATE);
 
         final Intent cliente = new Intent(this, Main2Activity.class);
         final Intent administrador = new Intent(this, AdminMainActivity.class);
@@ -41,9 +41,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(TextUtils.isEmpty(pref.getString("usuario","")) &&
-                        TextUtils.isEmpty(pref.getString("password",""))
-                        && TextUtils.isEmpty(pref.getString("Token",""))){
+                if(TextUtils.isEmpty(pref.getString("Token",""))){
                     cliente.setFlags(cliente.FLAG_ACTIVITY_NEW_TASK | cliente.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(cliente);
                 }else {
