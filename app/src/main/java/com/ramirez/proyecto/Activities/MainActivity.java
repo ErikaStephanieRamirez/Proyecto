@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private PupusasViewModel pupusasViewModel;
     private PollosViewModel pollosViewModel;
     private DesayunoViewModel desayunoViewModel;
-    //private UserModel userModel = new UserModel("maxisun","root");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
