@@ -8,9 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.ramirez.proyecto.API.Models.UsersRequest.UserModel;
 import com.ramirez.proyecto.R;
 import com.ramirez.proyecto.RoomArchitecture.ViewModel.BebidasViewModel;
+import com.ramirez.proyecto.RoomArchitecture.ViewModel.DesayunoViewModel;
 import com.ramirez.proyecto.RoomArchitecture.ViewModel.PollosViewModel;
 import com.ramirez.proyecto.RoomArchitecture.ViewModel.PupusasViewModel;
 
@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private BebidasViewModel bebidasViewModel;
     private PupusasViewModel pupusasViewModel;
     private PollosViewModel pollosViewModel;
-    private UserModel userModel = new UserModel("maxisun","root");
+    private DesayunoViewModel desayunoViewModel;
+    //private UserModel userModel = new UserModel("maxisun","root");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +51,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }, 1000);
-
-
-
     }
 
     private void fillbaselocal(){
         bebidasViewModel = new BebidasViewModel(getApplication());
         pupusasViewModel = new PupusasViewModel(getApplication());
         pollosViewModel = new PollosViewModel(getApplication());
+        desayunoViewModel = new DesayunoViewModel(getApplication());
     }
 }
