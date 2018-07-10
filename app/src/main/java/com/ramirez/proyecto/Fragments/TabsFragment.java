@@ -99,15 +99,15 @@ public class TabsFragment extends Fragment {
         }
         viewPager.setAdapter(s);
         tabLayout.setupWithViewPager(viewPager);
-        LinearLayout layout = v.findViewById(R.id.regresar);
-        layout.setOnClickListener(new View.OnClickListener() {
+      //  LinearLayout layout = v.findViewById(R.id.regresar);
+     /*   layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
                 toolbar.setTitle("Menú");
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contentcosa, menufragment.newInstance("4","3")).commit();
             }
-        });
+        }); */
         return v;
     }
 
