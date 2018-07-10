@@ -12,6 +12,7 @@
             android:id="@+id/menu"
             android:icon="@drawable/ic_restaurant_menu"
             android:title="Menú" />
+
         <item
             android:id="@+id/info"
             android:icon="@drawable/ic_info_black_24dp"

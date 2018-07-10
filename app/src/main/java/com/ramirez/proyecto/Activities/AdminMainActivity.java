@@ -104,6 +104,9 @@ public class AdminMainActivity extends AppCompatActivity
 
             } else if (id == R.id.addregistro) {
 
+                Intent redireccion= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/RepublicaSazon/"));
+                startActivity(redireccion);
+
             } else if (id == R.id.menu) {
 
             } else if (id == R.id.info) {
