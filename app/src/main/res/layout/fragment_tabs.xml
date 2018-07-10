@@ -1,0 +1,49 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.ramirez.proyecto.Fragments.TabsFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:id="@+id/regresar"
+           android:layout_height="wrap_content">
+           <ImageView
+               android:layout_width="32dp"
+               android:layout_height="32dp"
+               android:src="@drawable/flecha"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="32dp"
+               android:textColor="#fff"
+               android:textSize="20sp"
+               android:text="@string/back"
+               android:layout_marginLeft="8dp"/>
+       </LinearLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+        </android.support.design.widget.TabLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vspager"
+            android:layout_below="@+id/appbar"
+            android:layout_width="match_parent"
+            android:background="#fff"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </android.support.design.widget.AppBarLayout>
+
+
+</FrameLayout>

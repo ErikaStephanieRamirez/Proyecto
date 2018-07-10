@@ -5,32 +5,34 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/login"
             android:icon="@drawable/ic_person_pin"
             android:title="Iniciar Sesion" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/menu"
+            android:checked="true"
             android:icon="@drawable/ic_restaurant_menu"
             android:title="Menú" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/info"
             android:icon="@drawable/ic_info_black_24dp"
             android:title="Mas informacion"/>
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+
     </group>
 
     <item android:title="Redes Sociales">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
+                android:id="@+id/facebook"
+                android:icon="@drawable/fb"
                 android:title="Facebook" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
+                android:id="@+id/whats"
+                android:icon="@drawable/telefono"
+                android:title="Llamanos!" />
+            <item
+                android:id="@+id/instagram"
+                android:icon="@drawable/camera"
                 android:title="Instagram" />
         </menu>
     </item>

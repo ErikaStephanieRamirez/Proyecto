@@ -1,9 +1,29 @@
 <resources>
     <string name="app_name">Proyecto</string>
     <string name="title_activity_main2">Proyecto</string>
+    <string name="title_registrar_producto">Registrar producto</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Mas informaacion</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="vermas">Ver mas....</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="Categoria">Categoría</string>
+    <string name="propietario">Administrador</string>
+    <string name="back">Regresar al menú</string>
+    <string name="verventa">Ver Registros</string>
+    <string name="addregistro">Agregar Registro</string>
+    <string name="cerrarsesion">Cerrar Sesión</string>
+    <string name="masinfo">Mas información</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="action_sign_in">Entrar</string>
+    <string name="prompt_email">Usuario</string>
+    <string name="prompt_password">Contrasena</string>
+    <string name="random">Bienvenido!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
