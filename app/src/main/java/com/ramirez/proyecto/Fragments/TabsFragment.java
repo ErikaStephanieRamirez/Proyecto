@@ -93,6 +93,7 @@ public class TabsFragment extends Fragment {
         }
         if(mParam1.equals("Desayuno")){
             s.addFragment(PorcionesFragment.newInstance(mParam1,"k"),"PUPUSAS");
+            s.addFragment(PupusasFragment.newInstance(mParam1,"k"),"PORCION");
             s.addFragment(BebidasFragment.newInstance(mParam1, "k"), "BEBIDA");
         }
         if(mParam1.equals("Sabados")){

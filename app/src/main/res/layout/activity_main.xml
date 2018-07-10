@@ -3,13 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-<<<<<<< HEAD
-    android:background="@drawable/fondo"
-    tools:context="com.ramirez.proyecto.MainActivity">
-=======
     android:background="@drawable/fond"
     tools:context="com.ramirez.proyecto.Activities.MainActivity">
->>>>>>> 6b97c3a0a753603b6999f1a8e4a98d0c190d6284
 
    
 

@@ -1,5 +1,6 @@
 package com.ramirez.proyecto.API;
 
+import com.ramirez.proyecto.API.Models.DesayunosRequest.FeedDesayunos;
 import com.ramirez.proyecto.API.Models.FeedBebidas.FeedBebidas;
 import com.ramirez.proyecto.API.Models.PollosRequest.FeedPollos;
 import com.ramirez.proyecto.API.Models.PupusasRequest.FeedPupusas;
@@ -24,6 +25,11 @@ public interface RepSazonAPI {
     @GET("/pollos")
     Call<FeedPollos> getPollos();
 
+    @GET("/desayunos")
+    Call<FeedDesayunos> getDesayunos();
+
     @POST("users/login")
     Call<TokenModel> getToken(@Body UserModel userModel);
+
+
 }
