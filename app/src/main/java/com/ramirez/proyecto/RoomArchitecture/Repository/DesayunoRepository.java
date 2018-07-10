@@ -54,12 +54,6 @@ public class DesayunoRepository {
             public void onResponse(Call<FeedDesayunos> call, Response<FeedDesayunos> response) {
                 if(response.isSuccessful()){
                     ArrayList<DesayunosModel> desayunos = response.body().getDesayunos();
-
-                    System.out.println(desayunos.get(0).getId());
-                    System.out.println(desayunos.get(0).getNombre());
-                    System.out.println(desayunos.get(0).getPrice());
-                    System.out.println(desayunos.get(0).getProductImage());
-
                     String url = "https://rep-sazon.herokuapp.com/";
                     DesayunoEntity desayunoEntity;
                     for (int i=0;i<desayunos.size();i++){
