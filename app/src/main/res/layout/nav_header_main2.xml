@@ -16,10 +16,10 @@
     <ImageView
         android:layout_gravity="center"
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/ic_restaurant_menu" />
 
     <TextView
         android:id="@+id/nombreusuario"
